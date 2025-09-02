@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register BlogApp{% endblock title %}
+{% block login_style %}<link rel="stylesheet" href="{% static 'css/register-login.css' %}">{% endblock login_style %}
+
+{% block content %}
+<form class="form_main" method='post'>
+    {% csrf_token %}
+    <p class="heading">Register</p>
+    <div class="inputContainer">
+        <i class="inputIcon fa-solid fa-at"></i>
+        <input placeholder="Username" name='username' id="username" class="inputField" type="text"  required>
+    </div>
+
+    <div class="inputContainer">
+        <i class="inputIcon fa-regular fa-envelope"></i>
+        <input placeholder="Email" name='email' id="email" class="inputField" type="email" required>
+    </div>
+
+    <div class="inputContainer">
+        <i class="inputIcon fa-solid fa-lock"></i>
+        <input placeholder="Password" name='password1' id="password" class="inputField" type="password" required>
+    </div>
+
+    <div class="inputContainer">
+        <i class="inputIcon fa-solid fa-key"></i>
+        <input placeholder="Password" name='password2' id="password" class="inputField" type="password" required>
+    </div>
+
+    <button id="button">Submit</button>
+        <div class="signupContainer">
+            <p>Already have any account?</p>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+</form>
+{% endblock content %}

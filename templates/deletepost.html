@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}DeletePost BlogApp{% endblock title %}
+{% block delete_style %}<link rel="stylesheet" href="{% static 'css/deletpost.css' %}">{% endblock delete_style %}
+
+{% block content %}
+    <div class="delete-container">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p class="warn-para">Do you really want to delete this post ?</p>
+        <h1 class="title">{{ post.title }}</h1>
+        <p class="undo">This action can't be undo!</p>
+        <div class="confirmation">
+            <div class="delete-post">
+                <form method='post' class="delete-form">
+                    {% csrf_token %}
+                    <button type='submit'>Yes, Delete</button>
+                </form>
+            </div>
+            <div class="cancel-post">
+                <a href="{% url 'index' %}"><button class='cancel'>Cancel</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}NewPost BlogApp{% endblock title %}
+{% block newpost_style %}<link rel='stylesheet' href="{% static 'css/newpost.css' %}">{% endblock newpost_style %}
+
+{% block content %}
+    <div class="newpost-container">
+        <form method='post' class="post-form">
+            {% csrf_token %}
+            <p class="heading">Create New Post</p>
+            <div class="title-area">
+                <label for="inputTitle">Title</label>
+                <input type="text" name='title' id='inputTitle' class="inputTitle input" placeholder='Enter title here'>
+            </div>
+            <div class="title-area">
+                <label for="inputTitle">Body</label>
+                <textarea type="text" name='body' id='inputBody' class="inputBody input" placeholder='Enter text here' ></textarea>
+            </div>
+            <div class="submit-btn">
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

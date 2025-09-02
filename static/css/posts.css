@@ -1,0 +1,115 @@
+/* posts.css */
+.posts-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+}
+
+.posts-section .post {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    border: 2px solid black;
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.posts-section .post:hover {
+    box-shadow: var(--box-shadow-prime);
+}
+
+.posts-section a {
+    text-decoration: none;
+    color: black;
+}
+
+.posts-section .post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.posts-section .post-content .post-date {
+    font-size: 0.8rem;
+    color: gray;
+    padding-left: 0.5em;
+}
+
+.posts-section .post .admin-profile-name {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.posts-section .post .admin-profile-name i {
+    font-size: 2rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.posts-section .post .admin-profile-name i:hover {
+    color: var(--primary-color);
+}
+
+.posts-section .post-content .post-info .delete,
+.posts-section .post-content .post-info .view {
+    border: none;
+    padding: 0.5em 0.8em;
+    background-color: #d9534f;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow-prime);
+}
+
+.posts-section .post-content .post-info .delete:hover {
+    background-color: #d43e39;
+    transform: translateY(-3px);
+    box-shadow: 20px 20px 60px #a2a2a2,
+        -20px -20px 60px #dbdbdb;
+}
+
+.posts-section .post-content .post-info .view {
+    background-color: var(--primary-color);
+    margin-left: 0.5em;
+}
+
+.posts-section .post-content .view:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 20px 20px 60px #a2a2a2,
+        -20px -20px 60px #dbdbdb;
+}
+
+.posts-section .post-content a {
+    color: #fff;
+}
+
+.posts-section .post-content .post-body {
+    min-height: 70px;
+}
+
+/* Move .no-post outside of .posts-section context */
+.no-post {
+    text-align: center;
+    color: #000;
+    margin: 2em 0;
+    font-size: 1.5rem;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .posts-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .posts-section {
+        grid-template-columns: 1fr;
+    }
+}

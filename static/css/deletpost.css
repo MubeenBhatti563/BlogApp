@@ -1,0 +1,66 @@
+/* DeletePost styles */
+.delete-container {
+    width: 500px;
+    max-width: 90%;
+    margin: 9em auto 0 auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1em 0.5em 1em 0.5em;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-container:hover {
+    box-shadow: var(--box-shadow-prime);
+}
+
+.delete-container i {
+    font-size: 4rem;
+    color: var(--danger-color);
+    margin-bottom: 0.5em;
+}
+
+.delete-container .confirmation {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+    margin-top: 1em;
+}
+
+.delete-container .confirmation button {
+    border: none;
+    padding: 0.6em;
+    background-color: var(--danger-color);
+    border-radius: 5px;
+    color: #fff;
+    width: 100px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+.delete-container .confirmation a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5em;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: 100;
+    
+}
+
+.delete-container .confirmation button.cancel {
+    background-color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
+}
+
+.delete-container .confirmation button:hover {
+    box-shadow: var(--box-shadow-prime);
+    transform: translateY(-3px);
+}

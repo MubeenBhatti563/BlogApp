@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --bg-color: #e0e0e0;
+    --color: #000;
+    --border-radius: 20px;
+    --box-shadow: 20px 10px 20px #bebebe,
+        -20px -10px 20px #ffffff;
+    --box-shadow-prime: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --danger-color: #d9534f;
+    --success-color: #198754;
+    --transition: all 0.3s ease;
+    --sidebar-width: 280px;
+    --alert-bg: #031633;
+    --alert-color: #6ea8fe;
+    --alert-bd: #084298;
+}
+
+body {
+    background: var(--bg-color);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-container .blog-head #main-heading a {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav {
+    width: 100%;
+    background: #ffffff;
+    padding: 1.2em 0;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-container .blog-head {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.nav-container .blog-head #main-para {
+    text-shadow: var(--box-shadow-prime);
+}
+
+.nav-container .nav-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    transition: var(--transition); 
+}
+
+.nav-container .nav-content .add-user-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.nav-container .nav-content button {
+    border: 1px solid #000;
+    padding: 0.6em 1.2em;
+    background: #ffffff;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.nav-container .nav-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-prime);
+    color: var(--primary-color);
+}
+
+.nav-container .rm-user-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.nav-container button a {
+    text-decoration: none;
+    color: #000;
+    transition: var(--transition);
+}
+
+.nav-container button a:hover {
+    color: var(--primary-color);
+}
+
+/* Admin */
+.nav-container .user-profile {
+    gap: 0.3em;
+}
+
+.nav-container .profile-icon i {
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-container .profile-icon i:hover {
+    color: var(--primary-color);
+}
+
+.nav-container .user-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Posts */
+section.posts-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 1.5em auto 1em auto;
+}
+
+section.posts-container .post-head {
+    text-align: center;
+    margin-bottom: 1.5em;
+    z-index: 1000;
+}
+
+/* Hamburger */
+.hamburger {
+    width: 24px;
+    height: 18px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger .ham-line {
+    width: 100%;
+    background-color: #000;
+    height: 2px;
+    border-radius: 2px;
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+.hamburger.active .ham-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .ham-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger.active .ham-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Messages Handling */
+.messages-container {
+    z-index: 1200;
+    width: 50%;
+    margin: 2em auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 0.8em 1em;
+    box-shadow: var(--box-shadow);
+}
+
+.messages-container .rm-msg {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.messages-container .rm-msg i {
+    font-size: 1.5em;
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Mobile Overlay and Sidebar */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+}
+
+/* Close button inside sidebar - HIDDEN ON DESKTOP */
+.sidebar-close {
+    display: none;
+    /* Hidden by default on desktop */
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        width: 95%;
+        padding: 0 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-overlay {
+        display: block;
+    }
+
+    /* Close button - VISIBLE ONLY IN MOBILE SIDEBAR */
+    .sidebar-close {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1002;
+        color: #000;
+        transition: var(--transition);
+    }
+
+    .sidebar-close:hover {
+        color: var(--primary-color);
+        transform: rotate(90deg);
+    }
+
+    .nav-container .nav-content {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: var(--sidebar-width);
+        height: 100vh;
+        background: #ffffff;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 80px 2rem 2rem 2rem;
+        flex-flow: column-reverse;
+        gap: 1em;
+        z-index: 999;
+        box-shadow: var(--box-shadow);
+        transition: left 0.3s ease;
+    }
+
+    .nav-container .nav-content.active {
+        left: 0;
+    }
+
+    .nav-container .nav-content .add-user-btns,
+    .nav-container .nav-content .rm-user-btns,
+    .nav-container .nav-content .user-profile {
+        flex-direction: column;
+        width: 100%;
+        gap: 1em;
+    }
+
+    .nav-container .nav-content button {
+        width: 200px;
+        text-align: center;
+        padding: 1em;
+    }
+
+    .nav-container #main-heading {
+        font-size: 1.1rem;
+    }
+
+    .nav-container p {
+        display: none;
+    }
+
+    .nav-container .profile-icon i {
+        font-size: 3rem;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+    :root {
+        --sidebar-width: 85%;
+    }
+
+    .nav-container .nav-content {
+        padding: 70px 1.5rem 1.5rem 1.5rem;
+    }
+
+    .nav-container #main-heading {
+        font-size: 1rem;
+    }
+
+    .nav {
+        padding: 1em 0;
+    }
+
+    /* Adjust close button for smaller screens */
+    .sidebar-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.3rem;
+    }
+}
