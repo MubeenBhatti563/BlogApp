@@ -3,10 +3,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from . models import Blog
-<<<<<<< HEAD
-=======
 from . models import Comment
->>>>>>> b27d5a5 (Update project with new features)
 
 # Create your views here.
 def index(request):
@@ -109,9 +106,6 @@ def deletepost(request, pk):
         return redirect('/')
 
     else:
-<<<<<<< HEAD
-        return render(request, 'deletepost.html', {'post': post})
-=======
         return render(request, 'deletepost.html', {'post': post})
     
 def comment(request, pk):
@@ -137,4 +131,3 @@ def comment(request, pk):
         "blog": blog,
         "comments": comments
     })
->>>>>>> b27d5a5 (Update project with new features)
