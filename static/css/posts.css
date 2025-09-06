@@ -17,10 +17,13 @@
     transition: var(--transition);
 }
 
+<<<<<<< HEAD
 .posts-section .post:hover {
     box-shadow: var(--box-shadow-prime);
 }
 
+=======
+>>>>>>> b27d5a5 (Update project with new features)
 .posts-section a {
     text-decoration: none;
     color: black;

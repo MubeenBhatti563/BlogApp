@@ -1,7 +1,11 @@
 .posts-section {
     display: grid;
     place-items: center;
+<<<<<<< HEAD
     width: 500px;
+=======
+    width: 550px;
+>>>>>>> b27d5a5 (Update project with new features)
     max-width: 90%;
     margin: 0 auto;
     height: 70vh;
@@ -59,7 +63,11 @@
 .posts-section .post .post-info button {
     border: none;
     padding: 0.5em;
+<<<<<<< HEAD
     background-color: var(--secondary-color);
+=======
+    background-color: #83079C;
+>>>>>>> b27d5a5 (Update project with new features)
     border-radius: 5px;
     transition: var(--transition);
     cursor: pointer;
@@ -72,4 +80,17 @@
 .posts-section .post .post-info button:hover {
     transform: translateY(-3px);
     box-shadow: var(--box-shadow-prime);
+<<<<<<< HEAD
+=======
+}
+
+.posts-section .post .post-info button.comment {
+    background-color: #450BF4;
+}
+
+.posts-section .post .post-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+>>>>>>> b27d5a5 (Update project with new features)
 }

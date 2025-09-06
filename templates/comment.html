@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Comment BlogApp{% endblock title %}
+{% block comment_style %}<link rel="stylesheet" href="{% static 'css/comment.css' %}">{% endblock comment_style %}
+
+{% block content %}
+    <section class="comment-section">
+        <div class="comments">
+            <ul class="comments-items">
+                {% if comments %}
+                    {% for comment in comments %}
+                        <li class="comment">
+                            <div class="admin-site">
+                                <div class="admin-site-view">
+                                    <i class="fa-regular fa-circle-user"></i>
+                                    <div class="admin-name">{{ comment.author.username|default:"Anonymous" }}</div>
+                                </div>
+                                <div class="admin-comment-time">{{ comment.created_at }}</div>
+                            </div>
+                            <div class="admin-comment">
+                                <div class="admin-comment-text">{{ comment.text }}</div>
+                                <span class='less-more'>more</span>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                        <li class="no-comment">No Comment yet</li>
+                {% endif %}
+            </ul>
+        </div>
+        {% if user.is_authenticated %}
+            <form class="input-comment" method='post'>
+                {% csrf_token %}
+                <textarea type="text" name='text' placeholder='Comment...'></textarea>
+                <button class='upload-comment' type='submit'><i class="fa-regular fa-paper-plane"></i></button>
+            </form>
+        {% endif %}
+    </section>
+{% endblock content %}
+{% block comment_js %}
+    <script src="{% static 'js/comment.js' %}"></script>
+{% endblock comment_js %}
