@@ -7,6 +7,9 @@
 {% block content %}
     <section class="comment-section">
         <div class="comments">
+            <a href="{% url 'viewpost' blog.id %}" class="cancel">
+                <i class="cancel fa-solid fa-xmark"></i>
+            </a>
             <ul class="comments-items">
                 {% if comments %}
                     {% for comment in comments %}

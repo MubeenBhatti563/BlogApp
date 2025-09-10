@@ -138,3 +138,14 @@
 .comment-section .comments .comment .less-more.hide {
     display: none;
 }
+
+.comment-section .comments i.cancel {
+    font-size: 0.9rem;
+}
+
+.comment-section .comments a.cancel {
+    width: 100%;
+    color: #000;
+    margin-left: 95%;
+    margin-right: 1%;
+}
