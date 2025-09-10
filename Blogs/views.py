@@ -73,11 +73,11 @@ def newpost(request):
 
         if not title:
             messages.error(request, 'Title is required!')
-            return redirect('newpost/')
+            return redirect('newpost')
         
         if not body:
             messages.error(request, 'Content is required!')
-            return redirect('newpost/')
+            return redirect('newpost')
 
         try:
             blog = Blog (
