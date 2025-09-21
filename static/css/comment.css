@@ -71,6 +71,14 @@
     color: gray;
 }
 
+.comment-section .comments .admin-name span {
+    color: #fff;
+    background-color: #56687a;
+    font-size: 0.8rem;
+    padding: 0.1em 0.2em;
+    border-radius: 3px;
+}
+
 .comment-section .comments .admin-comment-time {
     color: grey;
     font-size: 0.8rem;
@@ -84,7 +92,7 @@
 /* No Post */
 .comment-section .comments .no-comment {
     width: 130px;
-    margin: 9em auto 0 auto;
+    margin: 6em auto 0 auto;
     list-style: none;
 }
 

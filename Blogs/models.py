@@ -19,3 +19,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author} on {self.blog}"
+    
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    timezone = models.CharField(max_length=50, default="Asia/Karachi")
+
+    def __str__(self):
+        return self.user.username

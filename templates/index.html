@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load tz %}
 
 {% block title %}Home - BlogApp{% endblock %}
 {% block index_style %}<link rel="stylesheet" href="{% static 'css/posts.css' %}">{% endblock index_style %}
@@ -15,7 +16,7 @@
                     <p>{{ post.author.username }}</p>
                 </div>
                 <div class="post-content">
-                    <div class="post-date">{{ post.created_at }}</div>
+                    <div class="post-date">{{ post.created_at|localtime }}</div>
                     <h3 class="post-title">{{ post.title|title }}</h3>
                     <p class="post-body">{{ post.body|truncatechars:100 }}</p>
                     <div class="post-info">

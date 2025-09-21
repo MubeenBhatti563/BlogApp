@@ -19,10 +19,6 @@
     transition: var(--transition);
 }
 
-.posts-section .post:hover {
-    box-shadow: var(--box-shadow-prime)
-}
-
 .posts-section .post .post-content {
     display: flex;
     flex-direction: column;

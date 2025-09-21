@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load tz %}
 
 {% block title %}View BlogApp{% endblock title %}
 {% block viewpost_style %}<link rel="stylesheet" href="{% static 'css/viewpost.css' %}">{% endblock viewpost_style %}
@@ -12,12 +13,12 @@
                 <p>{% if user.post.author %}{% else %}admin{% endif %}</p>
             </div>
             <div class="post-content">
-                <div class="post-date">{{ post.created_at }}</div>
+                <div class="post-date">{{ post.created_at|localtime  }}</div>
                 <h3 class="post-title">{{ post.title|title }}</h3>
                 <p class="post-body">{{ post.body }}</p>
                 <div class="post-info">
                     <a href="{% url 'index' %}"><button class="back-home"><i class="fa-solid fa-arrow-left-long"></i> Go Home</button></a>
-                    <a href="{% url 'comment' post.id %}"><button class='comment'><i class="fa-solid fa-comments"></i> Comments</button></a>
+                    <a href="{% url 'comment' post.id %}"><button class='comment'><i class="fa-solid fa-comments"></i> Comments {{ total }}</button></a>
                 </div>
             </div>
         </div>
