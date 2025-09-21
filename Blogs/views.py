@@ -63,7 +63,10 @@ def logout(request):
 
 def viewpost(request, pk):
     post = get_object_or_404(Blog, pk=pk)
-    return render(request, 'viewpost.html', {'post': post})
+    blog = get_object_or_404(Blog, id=pk)
+    total = blog.comments.count()
+    
+    return render(request, 'viewpost.html', {'post': post, 'total': total})
 
 @login_required
 def newpost(request):
@@ -126,7 +129,7 @@ def comment(request, pk):
             messages.info(request, "Please write something for comment!")
             return redirect('comment', pk=blog.id)
 
-    comments = blog.comments.all()  
+    comments = blog.comments.all()
     return render(request, "comment.html", {
         "blog": blog,
         "comments": comments
