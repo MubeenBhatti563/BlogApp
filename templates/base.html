@@ -46,7 +46,7 @@
                         <div class="profile-icon">
                             <i class="fa-regular fa-circle-user"></i>
                         </div>
-                        <div class="user-name">Hi! {{ user.username }}</div>
+                        <div class="user-name">Hi! {{ user.username|truncatechars:15 }}</div>
                     </div>
                 {% else %}
                     <div class="add-user-btns">
