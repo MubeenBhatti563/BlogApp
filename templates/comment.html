@@ -18,7 +18,7 @@
                             <div class="admin-site">
                                 <div class="admin-site-view">
                                     <i class="fa-regular fa-circle-user"></i>
-                                    <div class="admin-name">{{ comment.author.username|default:"Anonymous" }} {% if comment.author == user %}<span>Creator</span>{% endif %}</div>
+                                    <div class="admin-name">{{ comment.author.username|default:"Anonymous" }} {% if comment.author == blog.auther %}<span>Creator</span>{% endif %}</div>
                                 </div>
                                 <div class="admin-comment-time">{{ comment.created_at|localtime }}</div>
                             </div>

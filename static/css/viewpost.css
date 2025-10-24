@@ -79,3 +79,7 @@
     align-items: center;
     gap: 0.8em;
 }
+
+.posts-section .post .post-info button.edit {
+    background-color: #0b3d8c;
+}

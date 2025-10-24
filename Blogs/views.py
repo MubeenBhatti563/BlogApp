@@ -134,3 +134,22 @@ def comment(request, pk):
         "blog": blog,
         "comments": comments
     })
+
+def editpost(request, pk):
+    post = get_object_or_404(Blog, pk=pk)
+
+    if request.method == 'POST':
+        edit_title = request.POST.get('title')
+        edit_body = request.POST.get('body')
+
+        if edit_title and edit_body:
+            post.title=edit_title
+            post.body=edit_body
+            post.save()
+            messages.success(request, "Post updated successfully!")
+            return redirect('viewpost', pk=post.pk)
+        else:
+            messages.error(request, "Please fill in the form")
+
+    else:
+        return render(request, 'editpost.html', {'post': post})
