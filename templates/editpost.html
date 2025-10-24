@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Edit-post{% endblock title %}
+{% block editpost_style %}<link rel="stylesheet" href="{% static 'css/editpost.css' %}">{% endblock editpost_style %}
+
+{% block content %}
+    <div class="newpost-container">
+        <form method='post' class="post-form">
+            {% csrf_token %}
+            <p class="heading">Update this Post</p>
+            <div class="title-area">
+                <label for="inputTitle">Title</label>
+                <input type="text" name='title' id='inputTitle' value="{{post.title}}" class="inputTitle input" placeholder='Enter title here'>
+            </div>
+            <div class="title-area">
+                <label for="inputTitle">Body</label>
+                <textarea type="text" name='body' id='inputBody' class="inputBody input" placeholder='Enter text here' >{{post.body}}</textarea>
+            </div>
+            <div class="submit-btn">
+                <button type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

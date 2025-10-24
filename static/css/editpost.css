@@ -1,0 +1,90 @@
+/* EditPost Style */
+.newpost-container {
+    width: 600px;
+    max-width: 90%;
+    margin: 3em auto 0 auto;
+    border: 2px solid black;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.newpost-container:hover {
+    box-shadow: var(--box-shadow-prime);
+}
+
+.newpost-container .heading {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.newpost-container .post-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input Style e.g input:text & textarea */
+.input {
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: 300ms ease-in-out;
+    width: 100%;
+}
+
+.input:focus {
+    background-color: white;
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
+}
+
+.input::placeholder {
+    color: #fff;
+}
+
+.input:focus::placeholder {
+    color: #000;
+}
+
+.newpost-container .title-area label {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.newpost-container .title-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    margin: 0.5em 0;
+}
+
+.newpost-container .title-area textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+/* EditPost Submit Button */
+.newpost-container button {
+    cursor: pointer;
+    border: none;
+    padding: 0.8em;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 0.8em;
+    width: 120px;
+    box-shadow: var(--box-shadow-prime);
+    transition: var(--transition);
+}
+
+.newpost-container button:hover {
+    box-shadow: var(--box-shadow);
+    transform: translateY(-3px);
+}
