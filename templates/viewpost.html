@@ -29,12 +29,14 @@
                             Comments {{ total }}
                         </button>
                     </a>
+                    {% if post.author == user %}
                     <a href="{% url 'editpost' post.id %}">
                         <button class='edit'>
                             <i class="fa-solid fa-pen-to-square"></i>
                             Edit
                         </button>
                     </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
