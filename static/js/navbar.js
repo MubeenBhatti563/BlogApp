@@ -3,6 +3,9 @@ const hamburger = document.querySelector('.hamburger');
 const navContent = document.querySelector('.nav-content');
 const overlay = document.querySelector('.mobile-overlay');
 const closeButton = document.querySelector('.sidebar-close');
+const searchBtn = document.querySelector('.search-btn');
+const searchBar = document.querySelector('.search-bar');
+const overlaySearchBar = document.querySelector('.overlay-search-bar');
 
 // Toggle menu on hamburger click
 hamburger.addEventListener("click", (e) => {
@@ -67,4 +70,27 @@ function rmMsg() {
         }, 2000);
     });
 }
+
+// Search Button function
+const searchBarAdd = () => {
+    searchBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!searchBar.classList.contains('show')) {
+            overlaySearchBar.classList.add('show');
+            searchBar.classList.add('show');
+        }
+    })
+
+    document.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (!searchBar.contains(target) && target !== searchBtn) {
+            overlaySearchBar.classList.remove('show');
+            searchBar.classList.remove('show');
+        }
+    })
+}
+
+document.addEventListener("DOMContentLoaded", searchBarAdd);
 document.addEventListener('DOMContentLoaded', rmMsg);
