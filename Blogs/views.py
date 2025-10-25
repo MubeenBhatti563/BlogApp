@@ -135,6 +135,7 @@ def comment(request, pk):
         "comments": comments
     })
 
+@login_required
 def editpost(request, pk):
     post = get_object_or_404(Blog, pk=pk)
 
