@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from . models import Blog
 from . models import Comment
 
@@ -154,3 +155,16 @@ def editpost(request, pk):
 
     else:
         return render(request, 'editpost.html', {'post': post})
+    
+@login_required
+def search(request):
+    text = request.GET.get('q')
+
+    if not text:
+        messages.error(request, "Please enter a search term.")
+        return render(request, 'index.html', {'posts': []})
+    
+    items = Blog.objects.filter(
+        Q(title__icontains=text) | Q(body__icontains=text)
+    )
+    return render(request, 'index.html', {"posts": items, 'query': text})
