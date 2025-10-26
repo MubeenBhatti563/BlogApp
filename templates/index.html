@@ -21,9 +21,13 @@
                     <p class="post-body">{{ post.body|truncatechars:100 }}</p>
                     <div class="post-info">
                         {% if user.is_authenticated and user == post.author %}
-                            <button class="delete"><a href="{% url 'deletepost' post.id %}">Delete</a></button>
+                        <a href="{% url 'deletepost' post.id %}">
+                           <button class="delete">Delete</button> 
+                        </a>
                         {% endif %}
-                        <button class="view"><a href="{% url 'viewpost' post.id %}">Read more</a></button>
+                        <a href="{% url 'viewpost' post.id %}">
+                           <button class="view">Read more</button>
+                        </a>
                     </div>
                 </div>
             </div>
