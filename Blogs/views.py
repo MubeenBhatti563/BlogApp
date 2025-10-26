@@ -160,9 +160,9 @@ def editpost(request, pk):
 def search(request):
     text = request.GET.get('q')
 
-    if not text:
+    if not text or text.strip() == '':
         messages.error(request, "Please enter a search term.")
-        return render(request, 'index.html', {'posts': []})
+        return redirect('/')
     
     items = Blog.objects.filter(
         Q(title__icontains=text) | Q(body__icontains=text)
